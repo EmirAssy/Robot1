@@ -1,14 +1,56 @@
 #VRML_SIM R2019a utf8
 WorldInfo {
-  info [
-  ]
 }
 Viewpoint {
-  orientation -0.7 0.7 0.2 0.75
-  position 1.2 1.6 2.3
-
+  orientation -0.9981102947968651 -0.04694906439375945 -0.03964372299703721 1.5465027444422028
+  position -0.14809469679879886 0.951302509204819 0.10564292568060793
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
+}
+Floor {
+}
+Robot {
+  children [
+    Solid {
+      translation 0 0.075 0
+      children [
+        DEF S_BOX Shape {
+          appearance PBRAppearance {
+            baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
+            transparency 0.5
+          }
+          geometry Box {
+            size 0.25 0.07 0.1
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            position -0.08
+            axis 0 0 1
+            anchor 0 0.035 0
+          }
+          endPoint Solid {
+            translation -0.09 -2.0202628068715868e-07 0.059999999999659874
+            rotation 1 0 0 1.5707996938995747
+            children [
+              DEF WHEEL1 Shape {
+                appearance PBRAppearance {
+                  baseColor 0.9882352941176471 0.9137254901960784 0.30980392156862746
+                }
+                geometry Cylinder {
+                  height 0.02
+                  radius 0.075
+                }
+              }
+            ]
+            boundingObject USE WHEEL1
+            physics Physics {
+            }
+          }
+        }
+      ]
+    }
+  ]
 }
