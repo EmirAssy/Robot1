@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.165433981277878 -0.9703918228897376 -0.17598666968632243 1.6966405577672092
-  position -0.45415425255574193 0.21187483157447456 0.020058023584592605
+  orientation 0.968036772705572 -0.23755285852395552 -0.08045772863360161 5.696535888402278
+  position 0.1263049142887278 0.5861385298977357 0.5029126370884431
 }
 TexturedBackground {
 }
@@ -12,51 +12,49 @@ TexturedBackgroundLight {
 Floor {
 }
 Robot {
+  translation 0 0.2 0
   children [
-    Solid {
-      translation 0 0.077 0
-      children [
-        DEF S_BOX Shape {
-          appearance PBRAppearance {
-            baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
-            transparency 0.5
-          }
-          geometry Box {
-            size 0.25 0.07 0.1
-          }
-        }
-        HingeJoint {
-          jointParameters HingeJointParameters {
-            position 0.077
-            axis 0 0 1
-            anchor 0 0 0.035
-          }
-          device [
-            RotationalMotor {
-              name "motor"
-            }
-          ]
-          endPoint Solid {
-            translation -0.08687970327448359 -0.0038069752381457945 0.05920085301217247
-            rotation 1 -4.906538945149969e-18 -4.906538945149969e-18 1.5707963219999999
-            children [
-              DEF WHEEL1 Shape {
-                appearance PBRAppearance {
-                  baseColor 0.9882352941176471 0.9137254901960784 0.30980392156862746
-                }
-                geometry Cylinder {
-                  height 0.02
-                  radius 0.075
-                }
-              }
-            ]
-            boundingObject USE WHEEL1
-            physics Physics {
-            }
-          }
+    DEF ROBOT_BODY Shape {
+      appearance PBRAppearance {
+        baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
+      }
+      geometry DEF G_BODY Box {
+        size 0.25 0.07 0.1
+      }
+    }
+    DEF WHEEL1_JOINT HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor -0.05 0 0.06
+      }
+      device [
+        RotationalMotor {
+          name "motor_right"
         }
       ]
+      endPoint DEF WHEEL1 Solid {
+        translation -0.05 0 0.06
+        rotation 1 0 0 1.5707996938995745
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.9882352941176471 0.9137254901960784 0.30980392156862746
+              roughness 1
+              metalness 0
+            }
+            geometry DEF G_WHEEL Cylinder {
+              height 0.02
+              radius 0.075
+            }
+          }
+        ]
+        boundingObject USE G_WHEEL
+        physics Physics {
+        }
+      }
     }
   ]
-  controller "robot1"
+  boundingObject USE G_BODY
+  physics Physics {
+  }
 }
