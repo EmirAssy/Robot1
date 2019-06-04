@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.968036772705572 -0.23755285852395552 -0.08045772863360161 5.696535888402278
-  position 0.1263049142887278 0.5861385298977357 0.5029126370884431
+  orientation 0.9883618329486993 -0.12816469758728713 -0.08194325757892673 5.214072585860952
+  position 0.09535181028497577 0.7869572090438255 0.2794727567672016
 }
 TexturedBackground {
 }
@@ -38,13 +38,28 @@ Robot {
         children [
           Shape {
             appearance PBRAppearance {
-              baseColor 0.9882352941176471 0.9137254901960784 0.30980392156862746
+              baseColor 0 0 0
               roughness 1
               metalness 0
             }
             geometry DEF G_WHEEL Cylinder {
               height 0.02
               radius 0.075
+            }
+          }
+          DEF WHEEL2_JOINT HingeJoint {
+            jointParameters HingeJointParameters {
+            }
+            device [
+              RotationalMotor {
+                name "motor_left"
+              }
+            ]
+            endPoint Solid {
+              children [
+                Shape {
+                }
+              ]
             }
           }
         ]
@@ -57,4 +72,5 @@ Robot {
   boundingObject USE G_BODY
   physics Physics {
   }
+  controller "robot1"
 }
