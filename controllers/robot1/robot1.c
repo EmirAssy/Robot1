@@ -36,10 +36,12 @@ int main(int argc, char **argv)
    */
 
    WbDeviceTag wheel_right = wb_robot_get_device("motor_right");
+   WbDeviceTag wheel_left = wb_robot_get_device("motor_left");
 
 
 
    wb_motor_set_position(wheel_right,INFINITY);
+   wb_motor_set_position(wheel_left,INFINITY);
   /* main loop
    * Perform simulation steps of TIME_STEP milliseconds
    * and leave the loop when the simulation is over
@@ -59,6 +61,7 @@ int main(int argc, char **argv)
      * wb_differential_wheels_set_speed(100.0,100.0);
      */
      wb_motor_set_velocity(wheel_right,-5);
+     wb_motor_set_velocity(wheel_left,-5);
   };
 
   /* Enter your cleanup code here */
