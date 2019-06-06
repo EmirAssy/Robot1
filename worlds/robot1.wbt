@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.5426481507569253 -0.8239694783903015 -0.16311739073839976 5.62304654167565
-  position 0.5516911230137778 0.4150365485720201 0.7500108754229072
+  orientation 0.5275478350776167 0.8409193431758535 0.12061484144835265 5.705722424986471
+  position -0.4978914765848448 0.5455640099656283 1.2256112563400587
 }
 TexturedBackground {
 }
@@ -113,4 +113,18 @@ Robot {
   physics Physics {
   }
   controller "robot1"
+}
+Solid {
+  translation 0.5100000000000001 0.15 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.6784313725490196 0.4980392156862745 0.6588235294117647
+      }
+      geometry DEF G_PUPPLEBOX Box {
+        size 0.2 0.30000000000000004 0.1
+      }
+    }
+  ]
+  boundingObject USE G_PUPPLEBOX
 }
