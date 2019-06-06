@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.00041935915533271995 -0.9934213937622534 -0.11451532016879305 3.2020796478729934
-  position 0.17836228350587102 0.7920632937973757 -1.585250349836324
+  orientation 0.5426481507569253 -0.8239694783903015 -0.16311739073839976 5.62304654167565
+  position 0.5516911230137778 0.4150365485720201 0.7500108754229072
 }
 TexturedBackground {
 }
@@ -12,7 +12,7 @@ TexturedBackgroundLight {
 Floor {
 }
 Robot {
-  translation 0 0.2 0
+  translation 0 0.08 0
   children [
     DEF GR_BODY Group {
       children [
@@ -93,6 +93,20 @@ Robot {
         physics Physics {
         }
       }
+    }
+    DistanceSensor {
+      translation 0.125 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.9882352941176471 0.9137254901960784 0.30980392156862746
+          }
+          geometry Box {
+            size 0.02 0.01 0.01
+          }
+        }
+      ]
+      name "distance_sensor"
     }
   ]
   boundingObject USE GR_BODY
