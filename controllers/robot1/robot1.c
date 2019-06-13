@@ -60,8 +60,7 @@ int main(int argc, char **argv)
        wb_motor_set_velocity (wheel_right, 0);
        wb_motor_set_velocity (wheel_left, 0);
      }
-     //wb_motor_set_velocity(wheel_right, 6.283);
-     //wb_motor_set_velocity(wheel_left, 6.283);
+
   };
   wb_robot_cleanup();
 
